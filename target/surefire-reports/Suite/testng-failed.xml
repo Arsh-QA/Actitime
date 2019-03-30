@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]" parallel="tests">
+  <listeners>
+    <listener class-name="com.actitime.generic.MyTestNGListener"/>
+  </listeners>
+  <test thread-count="3" verbose="0" name="Test1(failed)" parallel="tests">
+    <parameter name="baseurl" value="http://127.0.0.1/login.do"/>
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.actitime.scripts.LoginTest">
+        <methods>
+          <include name="validLogin"/>
+          <include name="postCondition"/>
+          <include name="preCondition"/>
+          <include name="invalidLogin"/>
+        </methods>
+      </class> <!-- com.actitime.scripts.LoginTest -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+  <test thread-count="3" verbose="0" name="Test2(failed)" parallel="tests">
+    <parameter name="baseurl" value="http://127.0.0.1/login.do"/>
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.actitime.scripts.TaskTest">
+        <methods>
+          <include name="postCondition"/>
+          <include name="deleteCustomer"/>
+          <include name="deleteProject"/>
+          <include name="preCondition"/>
+          <include name="createCustomer"/>
+          <include name="createProject"/>
+        </methods>
+      </class> <!-- com.actitime.scripts.TaskTest -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+</suite> <!-- Failed suite [Suite] -->
