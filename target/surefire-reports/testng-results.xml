@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
     <line>
-      <![CDATA[Suite Execution Starts Sat May 18 23:46:08 IST 2019]]>
+      <![CDATA[Suite Execution Starts Sat Jun 08 13:02:48 IST 2019]]>
     </line>
     <line>
       <![CDATA[Chrome Browser Launched]]>
@@ -53,12 +53,12 @@
       <![CDATA[All sessions are closed]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="27307" started-at="2019-05-18T18:16:08Z" finished-at="2019-05-18T18:16:36Z">
+  <suite name="Suite" duration-ms="54157" started-at="2019-06-08T07:32:48Z" finished-at="2019-06-08T07:33:42Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="27307" started-at="2019-05-18T18:16:08Z" finished-at="2019-05-18T18:16:36Z">
+    <test name="Test" duration-ms="54157" started-at="2019-06-08T07:32:48Z" finished-at="2019-06-08T07:33:42Z">
       <class name="com.actitime.scripts.LoginTest">
-        <test-method status="PASS" signature="preCondition(java.lang.String, java.lang.String)[pri:0, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="preCondition" is-config="true" duration-ms="8824" started-at="2019-05-18T18:16:09Z" finished-at="2019-05-18T18:16:17Z">
+        <test-method status="PASS" signature="preCondition(java.lang.String, java.lang.String)[pri:0, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="preCondition" is-config="true" duration-ms="26737" started-at="2019-06-08T07:32:48Z" finished-at="2019-06-08T07:33:15Z">
           <params>
             <param index="0">
               <value>
@@ -80,7 +80,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method status="PASS" signature="validLogin()[pri:1, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="validLogin" duration-ms="4598" started-at="2019-05-18T18:16:17Z" description="Test case 1 : To check the functionality of Login page" finished-at="2019-05-18T18:16:22Z">
+        <test-method status="PASS" signature="validLogin()[pri:1, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="validLogin" duration-ms="15425" started-at="2019-06-08T07:33:15Z" description="Test case 1 : To check the functionality of Login page" finished-at="2019-06-08T07:33:30Z">
           <reporter-output>
             <line>
               <![CDATA[validLogin script execution starts]]>
@@ -96,7 +96,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- validLogin -->
-        <test-method status="PASS" signature="postCondition()[pri:0, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="postCondition" is-config="true" duration-ms="2979" started-at="2019-05-18T18:16:22Z" finished-at="2019-05-18T18:16:25Z">
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="postCondition" is-config="true" duration-ms="3032" started-at="2019-06-08T07:33:30Z" finished-at="2019-06-08T07:33:33Z">
           <reporter-output>
             <line>
               <![CDATA[Browser Closed]]>
@@ -106,7 +106,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- postCondition -->
-        <test-method status="PASS" signature="preCondition(java.lang.String, java.lang.String)[pri:0, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="preCondition" is-config="true" duration-ms="8773" started-at="2019-05-18T18:16:25Z" finished-at="2019-05-18T18:16:34Z">
+        <test-method status="PASS" signature="preCondition(java.lang.String, java.lang.String)[pri:0, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="preCondition" is-config="true" duration-ms="4802" started-at="2019-06-08T07:33:33Z" finished-at="2019-06-08T07:33:38Z">
           <params>
             <param index="0">
               <value>
@@ -128,7 +128,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method status="PASS" signature="invalidLogin()[pri:2, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="invalidLogin" duration-ms="1270" started-at="2019-05-18T18:16:34Z" description="Test case 2 : To check the functionality of Login page: Invalid login" finished-at="2019-05-18T18:16:35Z">
+        <test-method status="PASS" signature="invalidLogin()[pri:2, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="invalidLogin" duration-ms="1123" started-at="2019-06-08T07:33:38Z" description="Test case 2 : To check the functionality of Login page: Invalid login" finished-at="2019-06-08T07:33:39Z">
           <reporter-output>
             <line>
               <![CDATA[invalidLogin script execution starts]]>
@@ -144,7 +144,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- invalidLogin -->
-        <test-method status="PASS" signature="postCondition()[pri:0, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="postCondition" is-config="true" duration-ms="831" started-at="2019-05-18T18:16:35Z" finished-at="2019-05-18T18:16:36Z">
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:com.actitime.scripts.LoginTest@34b7bfc0]" name="postCondition" is-config="true" duration-ms="3006" started-at="2019-06-08T07:33:39Z" finished-at="2019-06-08T07:33:42Z">
           <reporter-output>
             <line>
               <![CDATA[Browser Closed]]>
