@@ -6,10 +6,13 @@ import com.actitime.generic.BaseLib;
 import com.actitime.generic.ExcelUtilities;
 import com.actitime.pageobjects.EnterTimeTrackPage;
 import com.actitime.pageobjects.LoginPage;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginTest extends BaseLib 
 {
-	@Test(priority = 1, description = "Test case 1 : To check the functionality of Login page")
+	ExtentTest test;
+	@Test(priority = 1, description = "Test case 1 : To check the functionality of Login page", enabled=true)
 	public void validLogin()
 	{
 		String file = "./testData/testdata.xlsx";
@@ -20,9 +23,10 @@ public class LoginTest extends BaseLib
 
 		EnterTimeTrackPage ettp = new EnterTimeTrackPage(driver);
 		ettp.verifyHomePage();
+		test.log(LogStatus.PASS, "Test script passed");
 	}
 
-	@Test(priority = 2, description ="Test case 2 : To check the functionality of Login page: Invalid login")
+	@Test(priority = 2, description ="Test case 2 : To check the functionality of Login page: Invalid login", enabled=false)
 	public void invalidLogin()
 	{
 		String file = "./testData/testdata.xlsx";

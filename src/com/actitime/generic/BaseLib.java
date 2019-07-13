@@ -1,5 +1,6 @@
 package com.actitime.generic;
 
+import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -9,13 +10,27 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 
 public class BaseLib 
 {
 	public static WebDriver driver;
+	static ExtentReports report;
+	static ExtentTest test;
+	
+	@BeforeClass
+	public void startTest(){
+		report = new ExtentReports("./ExtentReport/ExtentReportResults.html");
+		test = report.startTest("Test cases start");
+	}
+	
 	
 	@BeforeMethod
 	@Parameters({"browser", "baseurl"})
@@ -47,11 +62,13 @@ public class BaseLib
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.navigate().to(url);
 		Reporter.log(url+" url is navigated", true);
+		
 	}
 	
 	@AfterMethod
 	public static void postCondition()
 	{
+		
 		driver.close();
 		Reporter.log("Browser Closed", true);
 		if(driver!= null)
@@ -59,5 +76,11 @@ public class BaseLib
 			driver.quit();
 			Reporter.log("All sessions are closed", true);
 		}
+	}
+	
+	@AfterClass
+	public void endTest(){
+		report.endTest(test);
+		report.flush();
 	}
 }

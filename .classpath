@@ -29,6 +29,7 @@
 	<classpathentry kind="lib" path="jarfiles/poi-scratchpad-4.0.1.jar"/>
 	<classpathentry kind="lib" path="jarfiles/selenium-server-standalone-3.141.59.jar"/>
 	<classpathentry kind="lib" path="jarfiles/xmlbeans-3.0.2.jar"/>
+	<classpathentry kind="lib" path="jarfiles/extentreports-2.41.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
