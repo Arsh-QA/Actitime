@@ -23,7 +23,7 @@ public class LoginTest extends BaseLib
 
 		EnterTimeTrackPage ettp = new EnterTimeTrackPage(driver);
 		ettp.verifyHomePage();
-		test.log(LogStatus.PASS, "Test script passed");
+		//test.log(LogStatus.PASS, "Test script passed");
 	}
 
 	@Test(priority = 2, description ="Test case 2 : To check the functionality of Login page: Invalid login", enabled=false)
