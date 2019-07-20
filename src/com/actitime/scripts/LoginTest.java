@@ -6,12 +6,9 @@ import com.actitime.generic.BaseLib;
 import com.actitime.generic.ExcelUtilities;
 import com.actitime.pageobjects.EnterTimeTrackPage;
 import com.actitime.pageobjects.LoginPage;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginTest extends BaseLib 
 {
-	ExtentTest test;
 	@Test(priority = 1, description = "Test case 1 : To check the functionality of Login page", enabled=true)
 	public void validLogin()
 	{
