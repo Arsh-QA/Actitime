@@ -10,8 +10,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -24,6 +26,7 @@ public class BaseLib
 {
 	public static WebDriver driver;
 	public static ExtentReports extent;
+	public static ExtentTest parent;
 	public static ExtentTest logger;
 
 	@BeforeTest
@@ -32,6 +35,11 @@ public class BaseLib
 		extent.addSystemInfo("Environment", "Production");
 		extent.addSystemInfo("User Name", "Arsh Gupta");
 		extent.loadConfig(new File("extentConfig.xml"));
+	}
+
+	@BeforeClass
+	public void startLogger(){
+		parent = extent.startTest(this.getClass().getSimpleName());
 	}
 
 	@BeforeMethod
@@ -59,7 +67,8 @@ public class BaseLib
 			//driver = new RemoteWebDriver(DesiredCapabilities.internetExplorer());
 			Reporter.log("IE Browser Launched", true);
 		}
-		logger = extent.startTest(result.getMethod().getMethodName() + " : " + result.getMethod().getTestClass().getTestName());
+		logger = extent.startTest(result.getMethod().getMethodName());
+		parent.appendChild(logger);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.navigate().to(url);
@@ -83,6 +92,11 @@ public class BaseLib
 			logger.log(LogStatus.SKIP, "Test case skipped is : "+ result.getName());
 		}
 		extent.endTest(logger);
+	}
+
+	@AfterClass
+	public void endLogger(){
+		extent.endTest(parent);
 	}
 
 	@AfterTest

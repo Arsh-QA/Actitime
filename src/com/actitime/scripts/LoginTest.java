@@ -29,7 +29,7 @@ public class LoginTest extends BaseLib
 		logger.log(LogStatus.PASS, "Test case passed");
 	}
 
-	@Test(priority = 2, description ="Test case 2 : To check the functionality of Login page: Invalid login", enabled=false)
+	@Test(priority = 2, description ="Test case 2 : To check the functionality of Login page: Invalid login", enabled=true)
 	public void invalidLogin()
 	{
 		String file = "./testData/testdata.xlsx";

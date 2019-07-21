@@ -10,20 +10,7 @@
   	<parameter name="baseurl" value="http://127.0.0.1/login.do"/>
     <classes>
       <class name="com.actitime.scripts.LoginTest"/>
-    </classes>
-  </test>
-  <test thread-count="5" name="Test2">
-  	<parameter name="browser" value="firefox"/>
-  	<parameter name="baseurl" value="http://127.0.0.1/login.do"/>
-    <classes>
       <class name="com.actitime.scripts.TaskTest"/>
-    </classes>
-  </test>
-  <test thread-count="5" name="Test3">
-  	<parameter name="browser" value="ChromE"/>
-  	<parameter name="baseurl" value="http://127.0.0.1/login.do"/>
-    <classes>
-      <class name="com.actitime.scripts.LoginTest"/>
     </classes>
   </test>
 </suite>
