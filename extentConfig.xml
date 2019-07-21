@@ -3,7 +3,7 @@
 	<configuration>
 		<!-- report theme -->
 		<!-- standard, dark -->
-		<theme>standard</theme>
+		<theme>dark</theme>
 
 		<!-- document encoding -->
 		<!-- defaults to UTF-8 -->
@@ -20,7 +20,7 @@
 		<reportName></reportName>
 
 		<!-- report headline - displayed at top-nav, after reportHeadline -->
-		<reportHeadline>Automation Report</reportHeadline>
+		<reportHeadline>Actitime Automation Report</reportHeadline>
 
 		<!-- global date format override -->
 		<!-- defaults to yyyy-MM-dd -->

@@ -19,7 +19,6 @@ import org.testng.annotations.Parameters;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import com.sun.org.apache.xml.internal.serialize.Method;
 
 public class BaseLib
 {
@@ -30,8 +29,7 @@ public class BaseLib
 	@BeforeTest
 	public void startReport(){
 		extent = new ExtentReports("./test-output/extentReport.html", true);	
-		extent.addSystemInfo("Host Name", "SoftwareTestingMaterial");
-		extent.addSystemInfo("Environment", "Automation Testing");
+		extent.addSystemInfo("Environment", "Production");
 		extent.addSystemInfo("User Name", "Arsh Gupta");
 		extent.loadConfig(new File("extentConfig.xml"));
 	}
@@ -61,6 +59,7 @@ public class BaseLib
 			//driver = new RemoteWebDriver(DesiredCapabilities.internetExplorer());
 			Reporter.log("IE Browser Launched", true);
 		}
+		logger = extent.startTest(result.getMethod().getMethodName() + " : " + result.getMethod().getTestClass().getTestName());
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.navigate().to(url);
@@ -79,16 +78,16 @@ public class BaseLib
 		}
 		if (result.getStatus() == ITestResult.FAILURE) {
 			logger.log(LogStatus.FAIL, "Test Case failed is : "+ result.getName());
-			logger.log(LogStatus.FAIL, "Test case failed is : "+ result.getThrowable());
+			logger.log(LogStatus.FAIL, "Error is : "+ result.getThrowable());
 		} else if (result.getStatus() == ITestResult.SKIP){
 			logger.log(LogStatus.SKIP, "Test case skipped is : "+ result.getName());
 		}
+		extent.endTest(logger);
 	}
 
 	@AfterTest
 	public void endReport(){
-		extent.endTest(logger);
 		extent.flush();
-		//extent.close();
+		extent.close();
 	}
 }
