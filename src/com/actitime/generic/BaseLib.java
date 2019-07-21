@@ -1,5 +1,6 @@
 package com.actitime.generic;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,23 +8,38 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-public class BaseLib 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+import com.sun.org.apache.xml.internal.serialize.Method;
+
+public class BaseLib
 {
 	public static WebDriver driver;
-	//	static ExtentReports report;
-	//	static ExtentTest test;
+	public static ExtentReports extent;
+	public static ExtentTest logger;
+
+	@BeforeTest
+	public void startReport(){
+		extent = new ExtentReports("./test-output/extentReport.html", true);	
+		extent.addSystemInfo("Host Name", "SoftwareTestingMaterial");
+		extent.addSystemInfo("Environment", "Automation Testing");
+		extent.addSystemInfo("User Name", "Arsh Gupta");
+		extent.loadConfig(new File("extentConfig.xml"));
+	}
 
 	@BeforeMethod
 	@Parameters({"browser", "baseurl"})
-	public static void preCondition(String browserName, String url)
+	public static void preCondition(String browserName, String url, ITestResult result)
 	{
-		//		report = new ExtentReports("./ExtentReport/ExtentReportResults.html");
-		//		test = report.startTest("Test cases start");
 		if (browserName.equalsIgnoreCase("chrome")) 
 		{
 			System.setProperty("webdriver.chrome.driver", "./exefiles/chromedriver.exe");
@@ -52,7 +68,7 @@ public class BaseLib
 	}
 
 	@AfterMethod
-	public static void postCondition()
+	public static void postCondition(ITestResult result)
 	{	
 		driver.close();
 		Reporter.log("Browser Closed", true);
@@ -61,7 +77,18 @@ public class BaseLib
 			driver.quit();
 			Reporter.log("All sessions are closed", true);
 		}
-		//		report.endTest(test);
-		//		report.flush();
+		if (result.getStatus() == ITestResult.FAILURE) {
+			logger.log(LogStatus.FAIL, "Test Case failed is : "+ result.getName());
+			logger.log(LogStatus.FAIL, "Test case failed is : "+ result.getThrowable());
+		} else if (result.getStatus() == ITestResult.SKIP){
+			logger.log(LogStatus.SKIP, "Test case skipped is : "+ result.getName());
+		}
+	}
+
+	@AfterTest
+	public void endReport(){
+		extent.endTest(logger);
+		extent.flush();
+		//extent.close();
 	}
 }
