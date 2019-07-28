@@ -70,7 +70,7 @@ public class BaseLib
 		logger = extent.startTest(result.getMethod().getMethodName());
 		parent.appendChild(logger);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.navigate().to(url);
 		Reporter.log(url+" url is navigated", true);
 	}
@@ -102,6 +102,6 @@ public class BaseLib
 	@AfterTest
 	public void endReport(){
 		extent.flush();
-		extent.close();
+		//extent.close();
 	}
 }
