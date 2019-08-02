@@ -49,22 +49,22 @@ public class BaseLib
 		if (browserName.equalsIgnoreCase("chrome")) 
 		{
 			System.setProperty("webdriver.chrome.driver", "./exefiles/chromedriver.exe");
-			driver = new ChromeDriver();
-			//driver = new RemoteWebDriver(DesiredCapabilities.chrome());
+			//driver = new ChromeDriver();
+			driver = new RemoteWebDriver(DesiredCapabilities.chrome());
 			Reporter.log("Chrome Browser Launched", true);
 		}
 		else if(browserName.equalsIgnoreCase("firefox"))
 		{
 			System.setProperty("webdriver.gecko.driver", "./exefiles/geckodriver.exe");
-			driver = new FirefoxDriver();
-			//driver = new RemoteWebDriver(DesiredCapabilities.firefox());
+			//driver = new FirefoxDriver();
+			driver = new RemoteWebDriver(DesiredCapabilities.firefox());
 			Reporter.log("Firefox Browser Launched", true);
 		}
 		else if(browserName.equalsIgnoreCase("ie"))
 		{
 			System.setProperty("webdriver.ie.driver", "./exefiles/IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
-			//driver = new RemoteWebDriver(DesiredCapabilities.internetExplorer());
+			//driver = new InternetExplorerDriver();
+			driver = new RemoteWebDriver(DesiredCapabilities.internetExplorer());
 			Reporter.log("IE Browser Launched", true);
 		}
 		logger = extent.startTest(result.getMethod().getMethodName());
