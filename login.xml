@@ -5,7 +5,7 @@
 		<listener class-name="com.actitime.generic.MyTestNGListener" />
 	</listeners>
 	<test thread-count="5" name="Test">
-		<parameter name="browser" value="chrome" />
+		<parameter name="browser" value="firefox" />
 		<parameter name="baseurl" value="http://127.0.0.1/login.do" />
 		<classes>
 			<class name="com.actitime.scripts.LoginTest" />
