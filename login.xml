@@ -11,4 +11,4 @@
 			<class name="com.actitime.scripts.LoginTest" />
 		</classes>
 	</test>
-</suite>
+</suite><!--suite-->
